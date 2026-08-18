@@ -24,11 +24,33 @@
 | CH32X315RM.PDF | reference-manual | [page](https://www.wch-ic.com/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315RM.PDF) v1.1 | [page](https://www.wch.cn/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315RM.PDF) v1.1 |
 | CH32X315EVT.ZIP | evt | - | [page](https://www.wch.cn/downloads/CH32X315EVT_ZIP.html) [mirror](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT) v1.0 |
 
+## Product comparison
+
+### CH32X315 product comparison
+
+| | CH32X315&#8203;CCU6&#8203;(QFN48) | CH32X315&#8203;MCU6&#8203;(QFN76) | CH32X315&#8203;WCU6&#8203;(QFN68X7) |
+|---|---|---|---|
+| **Flash** | 480K | 480K | 480K |
+| **SRAM** | 64K | 64K | 64K |
+| **GPIO** | 40 | 64 | 59 |
+| **Temperature** | -40..85C | -40..85C | -40..85C |
+| ADC | 8+1 | 12+1 | 12+1 |
+| ARGB | 1 | 1 | 1 |
+| I2C | 2 | 2 | 2 |
+| PDUSB | Host/Device | Host/Device | Host/Device |
+| SPI | 3 | 3 | 3 |
+| Timer | 1 | 1 | 1 |
+| USART | 4 | 4 | 4 |
+| CPU main frequency | - | Max: 480MHz | - |
+| RTC | - | Support | - |
+
 ## Pin definitions
 
 ### CH32X305 pin map
 
-| Pin name | Type | RCT6&#8203;(LQFP64) | Notes |
+Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305) [ADC](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=ADC) [I2C](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=I2C) [SPI](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=SPI) [SYS](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=SYS) [TIM](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=TIM) [UART](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=UART) [USB](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305&features=USB)
+
+| Pin name | Type | [CH32X305&#8203;RCT6](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305RCT6)&#8203;(LQFP64) | Notes |
 |---|---|---|---|
 | PA0 | I/O/A | 17 |  |
 | PA1 | I/O/A | 18 |  |
@@ -152,7 +174,9 @@
 
 ### CH32X315 pin map
 
-| Pin name | Type | CCU6&#8203;(QFN48) | MCU6&#8203;(QFN76) | WCU6&#8203;(QFN68X7) | Notes |
+Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315) [ADC](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=ADC) [I2C](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=I2C) [SPI](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=SPI) [SYS](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=SYS) [TIM](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=TIM) [UART](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=UART) [USB](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315&features=USB)
+
+| Pin name | Type | [CH32X315&#8203;CCU6](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315CCU6)&#8203;(QFN48) | [CH32X315&#8203;MCU6](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315MCU6)&#8203;(QFN76) | [CH32X315&#8203;WCU6](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X315WCU6)&#8203;(QFN68X7) | Notes |
 |---|---|---|---|---|---|
 | PA0 | I/O/A | 10 | 18 | 15 |  |
 | PA1 | I/O/A | 11 | 19 | 16 |  |
@@ -295,7 +319,7 @@
 | PD13 | ADC3_IN7 | - | USART4_RTS | - | - | SPI3_MISO | - | TIM1_CH1N | TIM4_CH4 |
 | PD14 | ADC4_IN0 | - | - | - | - | SPI1_MISO | - | - | - |
 | PD15 | ADC4_IN1 | - | - | - | - | - | - | - | - |
-| VDD | DD, Main V, 主V | - | - | - | - | - | - | - | - |
+| VDD | DD, Main V | - | - | - | - | - | - | - | - |
 | XI | PD0, PD0（2） | - | USART1_RX | - | I2C2_SCL | SPI1_SCS | - | - | - |
 | XO | PD1, PD1（2） | - | USART1_TX | - | I2C2_SDA | SPI1_SCK | - | - | - |
 
