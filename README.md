@@ -4,10 +4,10 @@
 
 ## Series
 
-| Series | Core | ISA | Flash | SRAM | Max clock | VDD | Packages | Products | Official |
+| Series | Core | ISA | Flash | SRAM | Clock | VDD | Packages | Products | Official |
 |---|---|---|---|---|---|---|---|---|---|
-| **CH32X305** | QingKe V3F | RV32IMAFBC-X | 480K | 64K | 312.5/400 MHz | 2.8-3.6V | LQFP64 | 1 | [en](https://www.wch-ic.com/products/CH32X305.html) / [zh](https://www.wch.cn/products/CH32X305.html) |
-| **CH32X315** | QingKe V3F | RV32IMAFBC-X | 480K | 64K | 312.5/400 MHz | 2.8-3.6V | QFN48,QFN68X7,QFN76 | 3 | [en](https://www.wch-ic.com/products/CH32X315.html) / [zh](https://www.wch.cn/products/CH32X315.html) |
+| **CH32X305** | QingKe V3F | RV32IMAFBC-X | 480K | 64K | 480 MHz | 2.8-3.6V | LQFP64 | 1 | [en](https://www.wch-ic.com/products/CH32X305.html) / [zh](https://www.wch.cn/products/CH32X305.html) |
+| **CH32X315** | QingKe V3F | RV32IMAFBC-X | 480K | 64K | 480 MHz | 2.8-3.6V | QFN48,QFN68X7,QFN76 | 3 | [en](https://www.wch-ic.com/products/CH32X315.html) / [zh](https://www.wch.cn/products/CH32X315.html) |
 
 ## Debug / serial defaults
 
@@ -23,6 +23,17 @@
 | CH32X315DS0.PDF | datasheet | [page](https://www.wch-ic.com/downloads/CH32X315DS0_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) v1.1 | [page](https://www.wch.cn/downloads/CH32X315DS0_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) v1.1 |
 | CH32X315RM.PDF | reference-manual | [page](https://www.wch-ic.com/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315RM.PDF) v1.1 | [page](https://www.wch.cn/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315RM.PDF) v1.1 |
 | CH32X315EVT.ZIP | evt | - | [page](https://www.wch.cn/downloads/CH32X315EVT_ZIP.html) [mirror](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT) v1.0 |
+
+## Pinouts
+
+Pinout drawings are in the datasheet (chapter *Pinouts*):
+
+| Package | Products | Datasheet | Outline |
+|---|---|---|---|
+| LQFP64 | CH32X305RCT6 | [en](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) / [zh](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) | [drawing](https://raw.githubusercontent.com/ch32-riscv-ug/WCH-common/main/image/package_LQFP64.png) |
+| QFN48 | CH32X315CCU6 | [en](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) / [zh](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) | [drawing](https://raw.githubusercontent.com/ch32-riscv-ug/WCH-common/main/image/package_QFN48.png) |
+| QFN76 | CH32X315MCU6 | [en](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) / [zh](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) | [drawing](https://raw.githubusercontent.com/ch32-riscv-ug/WCH-common/main/image/package_QFN76.png) |
+| QFN68X7 | CH32X315WCU6 | [en](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) / [zh](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) | [drawing](https://raw.githubusercontent.com/ch32-riscv-ug/WCH-common/main/image/package_QFN68X7.png) |
 
 ## Product comparison
 
@@ -325,9 +336,31 @@ Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-da
 
 </details>
 
+<details><summary><b>Remap selectors (AFIO)</b></summary>
+
+| Series | Field | Register | Bits | Values | Reset |
+|---|---|---|---|---|---|
+| CH32X315 | PD0_1_REMAP | PCFR1 | PCFR1:15 | 0 |  |
+
+</details>
+
+## Block diagrams
+
+### CH32X305
+<img src="image/architecture_CH32X305.png" alt="CH32X305 block diagram" />
+
+### CH32X315
+<img src="image/architecture_CH32X315.png" alt="CH32X315 block diagram" />
+
 ## Errata
 
 - The blue-marked sections of the clock tree diagram in the datasheet are not applicable (they only apply to chips whose 5th lot-number digit is greater than 0). *(applies: CH32X305, CH32X315; 5th digit of lot number = 0)*
+
+## EVT examples
+
+100 routines in [EVT/EXAM](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM):
+
+[ADC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/ADC) 14 · [APPLICATION](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/APPLICATION) 1 · [ARGB](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/ARGB) 1 · [BKP](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/BKP) 1 · [CPU](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/CPU) 9 · [CRC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/CRC) 1 · [DMA](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/DMA) 2 · [EXTI](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/EXTI) 1 · [FLASH](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/FLASH) 1 · [GPIO](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/GPIO) 1 · [I2C](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/I2C) 6 · [IAP](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/IAP) 1 · [IWDG](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/IWDG) 1 · [PWR](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/PWR) 5 · [RCC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/RCC) 2 · [RTC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/RTC) 2 · [SDI_Printf](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/SDI_Printf) 1 · [SPI](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/SPI) 5 · [SYSTICK](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/SYSTICK) 1 · [TIM](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/TIM) 13 · [USART](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/USART) 9 · [USB](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/USB) 19 · [USBPD](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/USBPD) 2 · [WWDG](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/WWDG) 1
 
 ---
 Data: [ch32-device-data](https://github.com/ch32-riscv-ug/ch32-device-data) (tables/ -- each value carries its evidence and confidence there).
