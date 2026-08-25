@@ -6,6 +6,8 @@
 
 ### Debug / serial defaults
 
+Where these land **without writing a remap register**. SWD is live at reset; the UART pads are not -- the pin must still be put into alternate-function mode. See `route` in tables/README.ja.md.
+
 | Series | SWDIO | SWCLK | UART TX | UART RX |
 |---|---|---|---|---|
 | CH32X305 | PA13 | PA14 | none by default[^af] | none by default[^af] |
@@ -128,6 +130,7 @@ Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-da
 | VREF+ | P | 13 |  |
 | VREF- | P | 12 |  |
 | VSS | P | 15/63 |  |
+| VSSA | P | 12 |  |
 | XI | I/A | 1 |  |
 | XO | O/A | 2 |  |
 
@@ -265,7 +268,7 @@ Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-da
 | SSRXB | USB | 46 | 74 | 66 |  |
 | SSTXA | USB | 44 | 72 | 64 |  |
 | SSTXB | USB | 43 | 71 | 63 |  |
-| VDD | P | 48 | 17/38/58/76 | 35/68 |  |
+| VDD | P | 9/48 | 17/38/58/76 | 14/35/68 |  |
 | VDDA | P | 9 | 16 | 14 |  |
 | VDDK | P | 45 | 73 | 65 |  |
 | VREF+ | P | 8 | 15 | 13 |  |
