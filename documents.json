@@ -42,7 +42,7 @@
       "sources": {
         "zh": {
           "file_id": 570,
-          "version": "1.1",
+          "version": "1.2",
           "scope": "CH32X305RCT6, CH32X315CCU6, CH32X315MCU6, CH32X315WCU6"
         }
       }
