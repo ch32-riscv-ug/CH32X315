@@ -2,7 +2,7 @@
 
 <!-- This file is generated from ch32-riscv-ug/ch32-device-data (index/ + evidence/ + pipeline/build/build_readme.py). Edit there, not here. -->
 
-[Choose a part](#product-comparison) &middot; [Pin viewer](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305) &middot; [Pin maps](#pin-maps--alternate-functions) &middot; [Errata](#errata) &middot; [Examples](#evt-examples) &middot; [Documents](#documents) &middot; [Address map](#address-map)
+[Choose a part](#product-comparison) &middot; [Documents](#documents) &middot; [Pin maps](#pin-maps--alternate-functions) &middot; [Pin viewer](https://ch32-riscv-ug.github.io/ch32-device-data/pins.html?chip=CH32X305) &middot; [Errata](#errata) &middot; [Examples](#evt-examples) &middot; [Address map](#address-map)
 
 ## Quick start
 
@@ -16,6 +16,11 @@ Where these land **without writing a remap register**. SWD is live at reset; the
 | CH32X315 | PA13 | PA14 | none by default[^af] | none by default[^af] |
 
 [^af]: This series selects every pin function through `AFIO->GPIOx_AFLR/AFHR` rather than through AFIO remap, so no USART is routed out until software picks one -- the pads it **can** go on are listed under Pin definitions. The reset value of `GPIOx_AFLR/AFHR` is 0, which selects AF0 (a real function, not "none"), and a pad only drives its alternate function once its GPIO mode is set to alternate.
+
+### Datasheets and reference manual
+
+- CH32X315DS0.PDF (datasheet): [English](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) · [中文](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF)
+- CH32X315RM.PDF (reference manual): [English](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315RM.PDF) · [中文](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315RM.PDF)
 
 ## Series
 
@@ -68,6 +73,44 @@ Only the 6 rows that differ between these 3 products; the other 17 are the same 
 | CPU main frequency | Max: 480MHz | Max: 480MHz | Max: 480MHz |
 
 </details>
+
+## Block diagrams
+
+### CH32X305
+
+<details><summary>Internal block diagram (datasheet)</summary>
+
+<img src="image/architecture_CH32X305.png" alt="CH32X305 internal block diagram" />
+
+</details>
+
+### CH32X315
+
+<img src="image/system_CH32X315.png" alt="CH32X315 system block diagram" />
+
+System block diagram from the [WCH product page](https://www.wch-ic.com/products/CH32X315.html).
+
+<details><summary>Internal block diagram (datasheet)</summary>
+
+<img src="image/architecture_CH32X315.png" alt="CH32X315 internal block diagram" />
+
+</details>
+
+## Documents
+
+| Document | Kind | English | 中文 |
+|---|---|---|---|
+| CH32X315DS0.PDF | datasheet | [page](https://www.wch-ic.com/downloads/CH32X315DS0_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) v1.2 | [page](https://www.wch.cn/downloads/CH32X315DS0_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) v1.2 |
+| CH32X315RM.PDF | reference-manual | [page](https://www.wch-ic.com/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315RM.PDF) v1.2 | [page](https://www.wch.cn/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315RM.PDF) v1.2 |
+| CH32X315EVT.ZIP | evt | - | [page](https://www.wch.cn/downloads/CH32X315EVT_ZIP.html) [mirror](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT) v1.2 |
+
+### Evaluation boards
+
+- board-manual:en: [CH32X3x5 Evaluation Board Reference-EN.pdf](https://ch32-riscv-ug.github.io/CH32X315/EVT/PUB/CH32X3x5%20Evaluation%20Board%20Reference-EN.pdf)
+- board-manual:zh: [CH32X3x5评估板说明书.pdf](https://ch32-riscv-ug.github.io/CH32X315/EVT/PUB/CH32X3x5%E8%AF%84%E4%BC%B0%E6%9D%BF%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf)
+- schematic-pdf: [CH32X3x5SCH.pdf](https://ch32-riscv-ug.github.io/CH32X315/EVT/PUB/CH32X3x5SCH.pdf)
+
+4 board schematics under `EVT/PUB/SCHPCB/`: `CH32X305RCT-R0`, `CH32X315CCU-R0`, `CH32X315MCU-R0`, `CH32X315WCU-R0`
 
 ## Packages & pinout drawings
 
@@ -385,14 +428,6 @@ Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-da
 
 </details>
 
-## Block diagrams
-
-### CH32X305
-<img src="image/architecture_CH32X305.png" alt="CH32X305 block diagram" />
-
-### CH32X315
-<img src="image/architecture_CH32X315.png" alt="CH32X315 block diagram" />
-
 ## Errata
 
 - The blue-marked sections of the clock tree diagram in the datasheet are not applicable (they only apply to chips whose 5th lot-number digit is greater than 0). *(applies: CH32X305, CH32X315; 5th digit of lot number = 0)*
@@ -402,22 +437,6 @@ Pin functions (filterable): [ALL](https://ch32-riscv-ug.github.io/ch32-device-da
 110 routines in [EVT/EXAM](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM):
 
 [ADC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/ADC) 15 · [APPLICATION](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/APPLICATION) 5 · [ARGB](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/ARGB) 2 · [BKP](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/BKP) 1 · [CPU](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/CPU) 9 · [CRC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/CRC) 1 · [DMA](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/DMA) 2 · [EXTI](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/EXTI) 1 · [FLASH](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/FLASH) 1 · [GPIO](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/GPIO) 1 · [I2C](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/I2C) 6 · [IAP](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/IAP) 1 · [IWDG](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/IWDG) 1 · [PWR](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/PWR) 6 · [RCC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/RCC) 2 · [RTC](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/RTC) 2 · [SDI_Printf](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/SDI_Printf) 1 · [SPI](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/SPI) 7 · [SYSTICK](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/SYSTICK) 1 · [TIM](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/TIM) 13 · [USART](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/USART) 10 · [USB](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/USB) 19 · [USBPD](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/USBPD) 2 · [WWDG](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT/EXAM/WWDG) 1
-
-## Documents
-
-| Document | Kind | English | 中文 |
-|---|---|---|---|
-| CH32X315DS0.PDF | datasheet | [page](https://www.wch-ic.com/downloads/CH32X315DS0_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315DS0.PDF) v1.2 | [page](https://www.wch.cn/downloads/CH32X315DS0_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315DS0.PDF) v1.2 |
-| CH32X315RM.PDF | reference-manual | [page](https://www.wch-ic.com/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_en/CH32X315RM.PDF) v1.2 | [page](https://www.wch.cn/downloads/CH32X315RM_PDF.html) [mirror](https://ch32-riscv-ug.github.io/CH32X315/datasheet_zh/CH32X315RM.PDF) v1.2 |
-| CH32X315EVT.ZIP | evt | - | [page](https://www.wch.cn/downloads/CH32X315EVT_ZIP.html) [mirror](https://github.com/ch32-riscv-ug/CH32X315/tree/main/EVT) v1.2 |
-
-### Evaluation boards
-
-- board-manual:en: [CH32X3x5 Evaluation Board Reference-EN.pdf](https://github.com/ch32-riscv-ug/CH32X315/blob/main/EVT/PUB/CH32X3x5%20Evaluation%20Board%20Reference-EN.pdf)
-- board-manual:zh: [CH32X3x5评估板说明书.pdf](https://github.com/ch32-riscv-ug/CH32X315/blob/main/EVT/PUB/CH32X3x5%E8%AF%84%E4%BC%B0%E6%9D%BF%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf)
-- schematic-pdf: [CH32X3x5SCH.pdf](https://github.com/ch32-riscv-ug/CH32X315/blob/main/EVT/PUB/CH32X3x5SCH.pdf)
-
-4 board schematics under `EVT/PUB/SCHPCB/`: `CH32X305RCT-R0`, `CH32X315CCU-R0`, `CH32X315MCU-R0`, `CH32X315WCU-R0`
 
 ## Reference
 
