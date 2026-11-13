@@ -42,6 +42,9 @@ Directory
   |      |      |      |      |-- EEPROM_Emulation: The routine demonstrates flash simulation of EEPROM
   |      |      |      |      |-- FATFS: 
   |      |      |      |      |      |-- FATFS_SPI_FLASH: This example demonstrates SPI operation Winbond W25Qxx SPIFLASH with FATFS
+  |      |      |      |      |-- WCHGUI
+  |      |      |      |      |      |-- WCH-GUI-FLASH: GUI FLASH
+  |      |      |      |      |      |-- WCH-GUI-LIVE: GUI LIVE
   |      |      |      |-- ARGB
   |      |      |      |      |-- Gradient: ARGB routine
   |      |      |      |      |-- PollingFilling: Poll and interrupt mode drive ARGB

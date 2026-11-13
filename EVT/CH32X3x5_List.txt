@@ -42,6 +42,9 @@ https://wch.cn
   |      |      |      |      |-- EEPROM_Emulation: 例程演示了flash 模拟EEPROM
   |      |      |      |      |-- FATFS: 
   |      |      |      |      |      |-- FATFS_SPI_FLASH: 此示例演示了使用FATFS的Winbond W25Qxx SPIFLASH的SPI操作
+  |      |      |      |      |-- WCHGUI
+  |      |      |      |      |      |-- WCH-GUI-FLASH: GUI 内外部FLASH
+  |      |      |      |      |      |-- WCH-GUI-LIVE: GUI 屏幕显示
   |      |      |      |-- ARGB
   |      |      |      |      |-- Gradient：ARGB例程
   |      |      |      |      |-- PollingFilling: 轮询和中断方式驱动ARGB

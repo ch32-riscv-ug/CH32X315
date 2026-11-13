@@ -1,8 +1,8 @@
 /********************************** (C) COPYRIGHT  *******************************
 * File Name          : core_riscv.h
 * Author             : WCH
-* Version            : V1.0.0
-* Date               : 2026/03/01
+* Version            : V1.0.1
+* Date               : 2026/10/29
 * Description        : RISC-V V3F Core Peripheral Access Layer Header File for CH32X3x5
 *********************************************************************************
 * Copyright (c) 2021 Nanjing Qinheng Microelectronics Co., Ltd.
@@ -383,6 +383,25 @@ __attribute__( ( always_inline ) ) RV_STATIC_INLINE void SetVTFIRQ(uint32_t addr
 __attribute__( ( always_inline ) ) RV_STATIC_INLINE void NVIC_SystemReset(void)
 {
   NVIC->CFGR = NVIC_KEY3|(1<<7);
+}
+
+/*********************************************************************
+ * @fn      ASM_MCPY
+ *
+ * @brief   Implement the assembly instruction function of mcpy, copy
+ *        the continuous data from the starting address of SrcAddrStart
+ *        to the ending address of SrcAddrEnd to the starting address
+ *        of DstAddrStart.
+ *
+ * @param   SA - Copy the start address of the source region.
+ *          EA - Copy the end address of the source region.
+ *          DA - Copy the start address of the destination region.
+ *
+ * @return  none
+ */
+static inline void ASM_MCPY(uint8_t* DA,uint8_t* SA,uint8_t* EA)
+{
+  __asm__ volatile("mcpy %2, %0, %1" :"+r"(SA) , "+r"(DA):"r"(EA):"memory");
 }
 
 /*********************************************************************
